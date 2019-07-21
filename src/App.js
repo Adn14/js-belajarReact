@@ -6,7 +6,7 @@ import TodoList from './TodoList';
 //ex : <TodoList/>
 //create App component using class (bawah)
 //using class based, you can add state
-//ashiap
+//ashiap2
 
 class App extends React.Component {
     //create render function (bawah)
