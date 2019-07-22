@@ -5,13 +5,13 @@ const TodoListitem = (props) => {
     
     return (
         <div>
-            <input type="checkbox" checked={props.completed}></input>
+            <input type="checkbox" checked={props.completed} ></input>
             <span>
                 {
                     props.title
                 }
             </span>
-            <button>Delete Todo</button>
+            <button onClick={ () => props.deleteToDoByIndex(props.index )}>Delete Todo</button>
         </div>
     )
 }

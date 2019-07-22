@@ -1,5 +1,6 @@
 import React from 'react'
 import TodoList from './TodoList';
+import { Link, Route, Switch } from 'react-router-dom';
 
 //App berfungsi sebagai main component
 //component render js lain dimasukin ke render App
@@ -14,10 +15,39 @@ class App extends React.Component {
     render() {
         //return what we want to be rendered
         return(
-            <TodoList/>
+            
+            <React.Fragment>
+                {/* mengarahkan routing link todos ke komponen todolist */}
+                <Navigation />
+                <Switch>
+                    <Route path='/todos/' component={TodoList}/>
+                    <Route path='/profile/' component={Profile}/>
+                </Switch>
+
+                {/* <TodoList/> */}
+            </React.Fragment>
+            
             
         )
     }
+}
+
+const Profile = () => {
+    return (
+        <div>
+            Profile
+        </div>
+    )
+}
+
+const Navigation = () => {
+    return (
+        <div>
+            <Link to='/todos'>Todo List</Link>
+            <Link to='/profile'>Profile</Link>
+
+        </div>
+    )
 }
 
 //create App component using const
