@@ -8,17 +8,9 @@ import './Styles.css'
 export default class TodoList extends React.Component {
     //add state to application
     state = {
-        list_title : "Hey, I am the title",
-        todos : [
-            {
-                title : "Go jogging",
-                completed : false
-            },
-            {
-                title : "Run on th beach",
-                completed : true
-            }
-        ]
+        list_title : "",
+        current_value : '',
+        todos : []
     }
     
     render () {
@@ -31,7 +23,10 @@ export default class TodoList extends React.Component {
                 <h2>todo list...</h2>
                 <label>Title</label>
                 <br></br>
-                <input placeholder="Enter title..." type="text" value={this.state.list_title}/>
+                <input 
+                placeholder="Enter title..." 
+                type="text" value={this.state.list_title}
+                onChange={(event) => {this.setState( {list_title : event.target.value})}}/>
                 
                 {/* put to do list item here */}
                 {/* <TodoListitem />
@@ -51,8 +46,12 @@ export default class TodoList extends React.Component {
                     })
                 }
                 <br></br>
-                <input placeholder="Todo Item Name..." type="text"/>
-                <button>Add</button>
+                <input placeholder="Todo Item Name..." 
+                type="text"
+                value = {this.state.current_value}
+                onChange= {(event) => {this.setState({current_value : event.target.value})}}
+                />
+                <button onClick= {() => {this.setState({todos : [{title : this.state.current_value, completed : false}]})}}>Add</button>
             </div>
         )
 
